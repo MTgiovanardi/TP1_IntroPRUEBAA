@@ -1,22 +1,18 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return "Hola, Flask está funcionando!"
+    return render_template('index.html')   # busca templates/index.html
 
-@app.route("/saludo")
-def saludo():
-    return "Hola desde el backend!"
+@app.route('/login')
+def login():
+    return render_template('login.html')   # busca templates/login.html
 
-@app.route("/usuarios")
-def usuarios():
-    data = [
-        {"id": 1, "nombre": "Máximo"},
-        {"id": 2, "nombre": "Sofía"}
-    ]
-    return jsonify(data)
+@app.route('/register')
+def register():
+    return render_template('registration.html')  # busca templates/registration.html
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

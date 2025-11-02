@@ -1,0 +1,28 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi página{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Registro</a>
+    </nav>
+
+    <!-- CONTENIDO DINÁMICO -->
+    {% block content %}{% endblock %}
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Mi App Financiera</p>
+        <p>Instagram | WhatsApp | Email</p>
+    </footer>
+
+</body>
+</html>
